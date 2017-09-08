@@ -28,9 +28,9 @@ call mod_log "This text is only showed in the log"
 call mod_tee "this text is showed both live and in the log"
 call mod_pause
 call mod_newline
-call mod_make_directory "%temp%\testdir"
+call mod_make_directory /directory "%temp%\testdir"
 call mod_newline
-call mod_make_directory "%temp%\testdir"
+call mod_make_directory /directory "%temp%\testdir"
 call mod_newline
 call mod_delete /directory %temp%\testdir\ /file file that doesn't exist.txt /name file that doesn't exist
 echo hello > "%temp%\testdir\file that does exist.txt"
@@ -38,9 +38,9 @@ call mod_newline
 call mod_delete /directory %temp%\testdir\ /file file that does exist.txt /name file that does exist
 call mod_newline
 call mod_rmdir /folder %temp%\testdir\
-call mod_pause "Press any key, or not, to continue. . . or not. . ."
-call mod_install_msi /file "not-an-msi.msi" /name not-an-msi.msi /passive
-call mod_uninstall_guid /guid totally-not-a-guid /name not-a-guid /passive
+call mod_pause Press any key (or not) to continue. . . (or not. . .)
+call mod_msi_install /file "not-an-msi.msi" /name not-an-msi.msi /passive
+call mod_msi_uninstall /file totally-not-a-guid /name not-a-guid /passive
 call mod_echo Fast Spinner
 for /l %%i in (1,1,100) do (
 	call mod_spinner /speedhack
